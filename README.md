@@ -35,3 +35,16 @@ Scenario: Failed login with invalid credential
     Then items should be sorted by price low to high
 ![image](https://github.com/user-attachments/assets/3f2ab7ab-64a7-4ee1-ab20-d00d94f9a127)
 
+  Scenario: Successfully logging out
+  
+    Given the user is on the login page
+    And the user is on the item page
+    When the user clicks on the slider menu
+    And the user clicks on the logout button
+    Then the user should be redirected to the login page
+![image](https://github.com/user-attachments/assets/c9521240-f5f7-490e-9ab6-67be05326c34)
+![image](https://github.com/user-attachments/assets/d3740301-5ad1-45b5-a4d5-75f5de3b634b)
+
+
+
+
