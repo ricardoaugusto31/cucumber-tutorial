@@ -16,3 +16,13 @@ Scenario: Failed login with invalid credential
     And the user in the item list 
     Then item should be seen in the item page
 ![image](https://github.com/user-attachments/assets/63531b25-424f-449f-9e8a-192faef1997f)
+
+  Scenario: Successfully removing an item from cart
+  
+    Given the user is on the login page
+    And the user is on the item page
+    When the user add item to the cart
+    And the user in the item list
+    When the user remove item to the cart
+    Then item shouldn't be seen in the item page
+![image](https://github.com/user-attachments/assets/8a4eefa6-08dd-41ce-bd63-366eb9f932f0)
