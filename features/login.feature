@@ -36,9 +36,9 @@ Feature: User Login
   #   When the user sorts items by price low to high
   #   Then items should be sorted by price low to high
 
-  # Scenario: Successfully logging out
-  #   Given the user is on the login page
-  #   And the user is on the item page
-  #   When the user clicks on the slider menu
-  #   And the user clicks on the logout button
-  #   Then the user should be redirected to the login page
+  Scenario: Successfully logging out
+    Given the user is on the login page
+    And the user is on the item page
+    When the user clicks on the slider menu
+    And the user clicks on the logout button
+    Then the user should be redirected to the login page

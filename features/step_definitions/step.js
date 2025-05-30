@@ -49,6 +49,7 @@ let driver;
 // Then("the user should see a failed message", async function () {
 //   const item = await driver.findElement(By.className("error"));
 //   expect(item).to.exist;
+//   await driver.sleep(5000); 
 //   await driver.quit();
 // });
 
@@ -72,10 +73,19 @@ let driver;
 //   await addButton.click();
 // });
 
-// Then("item should be seen in the item page", async function () {
+// When("the user in the item list", async function () {
 //   const cartBadge = await driver.findElement(By.className("shopping_cart_badge"));
 //   const badgeText = await cartBadge.getText();
 //   expect(badgeText).to.equal("1");
+//   await driver.findElement(By.id("shopping_cart_container")).click();
+// });
+
+// Then("item should be seen in the item page", async function () {
+//   const message = await driver
+//       .wait(until.elementLocated(By.className("inventory_item_name")), 5000)
+//       .getText();
+//       expect(message).to.equal("Sauce Labs Backpack");
+//   await driver.sleep(5000); 
 //   await driver.quit();
 // });
 
@@ -105,6 +115,7 @@ let driver;
 //   const badgeText = await cartBadge.getText();
 //   expect(badgeText).to.equal("1");
 //   await driver.findElement(By.id("shopping_cart_container")).click();
+//   await driver.sleep(2000); 
 // });
 
 // When("the user remove item to the cart", async function () {
@@ -115,6 +126,7 @@ let driver;
 // Then("item shouldn't be seen in the item page", async function () {
 //   const item = await driver.findElements(By.id("item_4_img_link"));
 //   expect(item).to.have.lengthOf(0);
+//   await driver.sleep(5000); 
 //   await driver.quit();
 // });
 
@@ -142,39 +154,41 @@ let driver;
 // Then("items should be sorted by price low to high", async function () {
 //     const item = await driver.findElement(By.id("item_2_img_link"));
 //     expect(item).to.exist;
+//     await driver.sleep(5000);
 //     await driver.quit();
 // });
 
 // Scenario: Successfully logging out
-// Given("the user is on the login page", async function () {
-//   driver = new Builder().forBrowser("chrome").build();
-//   await driver.get("https://www.saucedemo.com/");
-//   await driver.findElement(By.id("user-name")).sendKeys("standard_user");
-//   await driver.findElement(By.id("password")).sendKeys("secret_sauce");
-//   await driver.findElement(By.id("login-button")).click();
-// });
+Given("the user is on the login page", async function () {
+  driver = new Builder().forBrowser("chrome").build();
+  await driver.get("https://www.saucedemo.com/");
+  await driver.findElement(By.id("user-name")).sendKeys("standard_user");
+  await driver.findElement(By.id("password")).sendKeys("secret_sauce");
+  await driver.findElement(By.id("login-button")).click();
+});
 
-// When("the user is on the item page", async function () {
-//   const item = await driver.findElement(By.id("item_4_img_link"));
-//   expect(item).to.exist;
-// });
+When("the user is on the item page", async function () {
+  const item = await driver.findElement(By.id("item_4_img_link"));
+  expect(item).to.exist;
+});
 
-// When("the user clicks on the slider menu", async function () {
-//   const menuButton = await driver.findElement(By.id("react-burger-menu-btn"));
-//   await menuButton.click();
-//   await driver.sleep(2000); 
-// });
+When("the user clicks on the slider menu", async function () {
+  const menuButton = await driver.findElement(By.id("react-burger-menu-btn"));
+  await menuButton.click();
+  await driver.sleep(5000); 
+});
 
-// When("the user clicks on the logout button", async function () {
-//   const logoutButton = await driver.findElement(By.id("logout_sidebar_link"));
-//   await logoutButton.click();
-// });
+When("the user clicks on the logout button", async function () {
+  const logoutButton = await driver.findElement(By.id("logout_sidebar_link"));
+  await logoutButton.click();
+});
 
-// Then("the user should be redirected to the login page", async function () {
-//   const loginButton = await driver.wait(
-//     until.elementLocated(By.id("login-button")),
-//     5000 // waktu tunggu 5 detik
-//   );
-//   expect(loginButton).to.exist;
-//   await driver.quit();
-// });
+Then("the user should be redirected to the login page", async function () {
+  const loginButton = await driver.wait(
+    until.elementLocated(By.id("login-button")),
+    3000 // waktu tunggu 3 detik
+  );
+  expect(loginButton).to.exist;
+  await driver.sleep(5000); 
+  await driver.quit();
+});
