@@ -26,3 +26,12 @@ Scenario: Failed login with invalid credential
     When the user remove item to the cart
     Then item shouldn't be seen in the item page
 ![image](https://github.com/user-attachments/assets/8a4eefa6-08dd-41ce-bd63-366eb9f932f0)
+
+  Scenario: Successfully sorting items by price(low to high)
+  
+    Given the user is on the login page
+    And the user is on the item page
+    When the user sorts items by price low to high
+    Then items should be sorted by price low to high
+![image](https://github.com/user-attachments/assets/3f2ab7ab-64a7-4ee1-ab20-d00d94f9a127)
+
