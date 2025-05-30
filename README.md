@@ -1,5 +1,7 @@
 **CUCUMBER - 71220865**
 
+_**NOTE: SCENARIO HANYA BISA DIJALANKAN SATU PERSATU, TIDAK BISA SEKALIGUS**_
+
 Scenario: Failed login with invalid credential
 
     Given the user is on the login page
